@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity
     List<Activity> activityList = null;
     RecyclerView recyclerView;
     FloatingActionButton addActivity;
-    FirebaseDatabase myDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference myReference = myDatabase.getReference();
+    static FirebaseDatabase myDatabase = FirebaseDatabase.getInstance();
+    static DatabaseReference myReference = myDatabase.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

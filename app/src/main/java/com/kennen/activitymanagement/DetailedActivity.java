@@ -7,13 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.Optional;
+
+import static com.kennen.activitymanagement.MainActivity.myReference;
 
 public class DetailedActivity extends AppCompatActivity
 {
@@ -21,6 +26,8 @@ public class DetailedActivity extends AppCompatActivity
     FloatingActionButton fab, rollCallFab, unRCFab, exportFab;
     RecyclerView student;
     boolean isShowFAB = false;
+    Activity temp = null;
+    EditText idStd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,7 +38,7 @@ public class DetailedActivity extends AppCompatActivity
         setReference(); //reference to layout
 
         Intent intent = getIntent();
-        Activity temp = (Activity) intent.getSerializableExtra("activity"); //get 'activity' from MainActivity
+        temp = (Activity) intent.getSerializableExtra("activity"); //get 'activity' from MainActivity
 
         if(temp!=null)    //check if temp != null
         {
@@ -59,6 +66,11 @@ public class DetailedActivity extends AppCompatActivity
                 isShowFAB = false;
             }
         });
+
+        rollCallFab.setOnClickListener(v->
+        {
+            RollCall();
+        });
     }
 
     private void RollCall()
@@ -69,9 +81,44 @@ public class DetailedActivity extends AppCompatActivity
         rollCall.show();
 
         TextView nameAct = (TextView)rollCall.findViewById(R.id.tv_name);
-        EditText idStd = (EditText)rollCall.findViewById(R.id.edt_mssv);
+        idStd = (EditText)rollCall.findViewById(R.id.edt_mssv);
         Button scan = (Button)rollCall.findViewById(R.id.btn_scan);
         Button rc = (Button)rollCall.findViewById(R.id.btn_rollcall);
+
+        nameAct.setText(temp.getName());
+
+        scan.setOnClickListener(v->
+        {
+            Intent intent = new Intent(DetailedActivity.this, ScanActivity.class);
+            startActivityForResult(intent, 1);
+        });
+
+        rc.setOnClickListener(v->
+        {
+            Optional<Student> match = temp.getStudentsList().stream().filter(std -> std.getId().equals(idStd.getText().toString())).findFirst();
+            Student rcStudent;
+            int index;
+            if(match.isPresent())
+            {
+                rcStudent = match.get();
+                index = temp.getStudentsList().indexOf(rcStudent);
+                Log.e(String.valueOf(index), rcStudent.getName());
+                myReference.child(temp.getDbChild()).child("studentsList").child(String.valueOf(index)).child("rollCall").setValue(true);
+                Toast.makeText(this, "Đã điểm danh " + rcStudent.getName(), Toast.LENGTH_SHORT).show();
+            }
+            else
+                Toast.makeText(this, "Không tìm thấy sinh viên!", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1 && data != null)
+        {
+            idStd.setText(data.getStringExtra("ID"));
+        }
     }
 
     private void setReference()

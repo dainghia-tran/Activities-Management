@@ -3,6 +3,7 @@
         package="com.kennen.activitymanagement">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
             android:allowBackup="true"
@@ -11,6 +12,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ScanActivity" />
         <activity android:name=".AddActivity" />
         <activity android:name=".DetailedActivity" />
         <activity android:name=".MainActivity">
@@ -20,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+                android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                android:value="barcode" />
     </application>
 
 </manifest>
