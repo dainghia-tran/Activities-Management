@@ -21,7 +21,7 @@ public class Activity implements Serializable
 
     public String getDbChild()
     {
-        dbChild = organizeDate.replace("/", "-");
+        dbChild = organizeDate.replace("/", "-").replace(":", "h").replaceAll("\\s+","");
         return dbChild;
     }
 

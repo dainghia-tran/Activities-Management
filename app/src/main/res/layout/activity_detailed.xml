@@ -21,7 +21,7 @@
             android:layout_marginStart="250dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
-            android:text="TextView"/>
+            android:text="TextView" />
 
     <TextView
             android:id="@+id/tv_location"
@@ -30,23 +30,31 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="75dp"
             android:layout_marginEnd="15dp"
-            android:text="TextView"/>
+            android:text="TextView" />
 
     <TextView
             android:id="@+id/tv_description"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginTop="150dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="15dp"
             android:text="TextView" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="300dp"
+            android:text="Danh sách chưa điểm danh" />
+
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_actStudent"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="330dp"
             android:layout_marginEnd="15dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -64,5 +72,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

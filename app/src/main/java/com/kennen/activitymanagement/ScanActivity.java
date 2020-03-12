@@ -50,7 +50,7 @@ public class ScanActivity extends AppCompatActivity
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token)
                     {
-
+                        Toast.makeText(ScanActivity.this, "Vui lòng cấp quyền cho ứng dụng để hoạt động!", Toast.LENGTH_SHORT).show();
                     }
                 }).check();
     }

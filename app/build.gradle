@@ -36,6 +36,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
     implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.0.2'
 
-    implementation 'com.karumi:dexter:5.0.0'
+    implementation 'com.karumi:dexter:6.0.2'
     implementation 'com.otaliastudios:cameraview:1.6.0'
+    implementation files('E:\\Learning\\Code\\AndroidStudio\\ActivityManagement\\app\\libs\\poishadow-all.jar')
 }
