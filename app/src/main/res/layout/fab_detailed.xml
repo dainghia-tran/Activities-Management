@@ -15,21 +15,7 @@
             android:layout_marginBottom="100dp"
             android:layout_marginRight="15dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/round_face_white_48dp"
-            tools:layout_editor_absoluteX="339dp"
-            tools:layout_editor_absoluteY="569dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_unRC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_gravity="end|bottom"
-            android:layout_marginBottom="75dp"
-            android:layout_marginRight="75dp"
-            android:visibility="invisible"
-            app:srcCompat="@drawable/round_highlight_off_white_48dp"
+            app:srcCompat="@drawable/round_playlist_add_check_white_48dp"
             tools:layout_editor_absoluteX="339dp"
             tools:layout_editor_absoluteY="569dp" />
 
@@ -40,10 +26,24 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_gravity="end|bottom"
+            android:layout_marginBottom="75dp"
+            android:layout_marginRight="75dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/round_play_for_work_white_48dp"
+            tools:layout_editor_absoluteX="339dp"
+            tools:layout_editor_absoluteY="569dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_deleteAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_gravity="end|bottom"
             android:layout_marginBottom="15dp"
             android:layout_marginRight="100dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/round_receipt_white_48dp"
+            app:srcCompat="@drawable/round_clear_white_48dp"
             tools:layout_editor_absoluteX="339dp"
             tools:layout_editor_absoluteY="569dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

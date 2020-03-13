@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="15dp"
-            android:src="@drawable/round_add_white_48dp" />
+            android:src="@drawable/round_note_add_white_48dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

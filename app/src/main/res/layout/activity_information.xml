@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:background="#FF9900"
+        android:alpha="0.7"
         android:orientation="vertical">
 
     <TextView
             android:id="@+id/activity_name"
-            android:layout_width="320dp"
-            android:layout_height="match_parent" />
+            android:layout_width="300dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
 
     <TextView
-            android:layout_width="320dp"
             android:id="@+id/activity_date"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom" />
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom"
+            android:textStyle="italic"
+            android:layout_marginStart="20dp"
+            android:textColor="#FFFFFF" />
 
-    <Button
-            android:id="@+id/btn_detailed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center"
-            android:text="Chi tiết" />
+    <ImageView
+            android:id="@+id/img_detailed"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="50dp"
+            android:layout_marginStart="330dp"
+            android:src="@drawable/round_fast_forward_white_48dp" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

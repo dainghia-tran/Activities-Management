@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,14 +22,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder //ViewHolder
     {
         private TextView act_name, act_date;
-        private Button btn_detailed;
+        private ImageView img_detailed;
 
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
-            btn_detailed = (Button)itemView.findViewById(R.id.btn_detailed);
-            act_name = (TextView)itemView.findViewById(R.id.activity_name);
-            act_date = (TextView)itemView.findViewById(R.id.activity_date);
+            img_detailed = (ImageView) itemView.findViewById(R.id.img_detailed);
+            act_name = (TextView) itemView.findViewById(R.id.activity_name);
+            act_date = (TextView) itemView.findViewById(R.id.activity_date);
         }
     }
 
@@ -50,18 +51,21 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>
     public void onBindViewHolder(@NonNull RVAdapter.ViewHolder holder, int position)
     {
         Activity temp = activityList.get(position);
-        holder.act_name.setText(temp.getName());
-        holder.act_date.setText(temp.getOrganizeDate().toString());
-        holder.btn_detailed.setOnClickListener(new View.OnClickListener()   //go to detailed 'Activity'
+        if (temp != null)
         {
-            @Override
-            public void onClick(View v)
+            holder.act_name.setText(temp.getName());
+            holder.act_date.setText(temp.getOrganizeDate());
+            holder.img_detailed.setOnClickListener(new View.OnClickListener()   //go to detailed 'Activity'
             {
-                Intent intent = new Intent(mContext, DetailedActivity.class);
-                intent.putExtra("activity", temp);
-                mContext.startActivity(intent);
-            }
-        });
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(mContext, DetailedActivity.class);
+                    intent.putExtra("activity", temp);
+                    mContext.startActivity(intent);
+                }
+            });
+        }
     }
 
     @Override

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -31,7 +32,8 @@ import java.util.Locale;
 
 public class AddActivity extends AppCompatActivity
 {
-    private Button btnAdd, btnComplete;
+    private Button btnComplete;
+    private ImageView img_addStudent;
     private TextView tvDate;
     private EditText edtName, edtLocation, edtDes;
     private RecyclerView rvStudentList;
@@ -61,7 +63,7 @@ public class AddActivity extends AppCompatActivity
         {
             activity = new Activity();
 
-            btnAdd.setOnClickListener(v ->
+            img_addStudent.setOnClickListener(v ->
             {
                 addStudentDialog();
             });
@@ -86,7 +88,7 @@ public class AddActivity extends AppCompatActivity
 
     private void setReference()
     {
-        btnAdd = (Button) findViewById(R.id.btn_addStudent);
+        img_addStudent = (ImageView) findViewById(R.id.img_addStudent);
         btnComplete = (Button) findViewById(R.id.btn_complete);
         edtName = (EditText) findViewById(R.id.tv_actName);
         tvDate = (TextView) findViewById(R.id.tv_actDate);
@@ -149,16 +151,12 @@ public class AddActivity extends AppCompatActivity
     private void PickTime()
     {
         Calendar calendar = Calendar.getInstance();
-        TimePickerDialog dialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener()
+        TimePickerDialog dialog = new TimePickerDialog(this, (view, hourOfDay, minute) ->
         {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute)
-            {
-                calendar.set(0, 0, 0, hourOfDay, minute);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm", new Locale("vi", "VN"));
-                String temp = tvDate.getText().toString();
-                tvDate.setText(String.format("%s - %s", temp, simpleDateFormat.format(calendar.getTime())));
-            }
+            calendar.set(0, 0, 0, hourOfDay, minute);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm", new Locale("vi", "VN"));
+            String temp = tvDate.getText().toString();
+            tvDate.setText(String.format("%s - %s", temp, simpleDateFormat.format(calendar.getTime())));
         }, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), true);
         dialog.show();
     }

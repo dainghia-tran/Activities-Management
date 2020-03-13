@@ -2,6 +2,7 @@ package com.kennen.activitymanagement;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity
                 RVAdapter rvAdapter = new RVAdapter(MainActivity.this, activityList);    //initialize Adapter
                 recyclerView.setAdapter(rvAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));   //set Layout Manager
+                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
             }
 
             @Override
