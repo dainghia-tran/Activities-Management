@@ -76,10 +76,10 @@ public class DetailedActivity extends AppCompatActivity
             tvDes.setText(temp.getDescription());
 
 
-            if (temp.getStudentsList() !=null)
+            if (studentList != null)
             {
                 student = (RecyclerView) findViewById(R.id.rv_actStudent);
-                adapterStudent = new RVAdapterStudent(temp.getStudentsList().stream().filter(std -> !std.isRollCall()).collect(Collectors.toList()), this);
+                adapterStudent = new RVAdapterStudent(studentList.stream().filter(std -> !std.isRollCall()).collect(Collectors.toList()), this);
                 student.setAdapter(adapterStudent);
                 student.setLayoutManager(new LinearLayoutManager(this));
             }
@@ -100,7 +100,10 @@ public class DetailedActivity extends AppCompatActivity
 
         rollCallFab.setOnClickListener(v ->
         {
-            RollCall();
+            if (studentList != null)
+                RollCall();
+            else
+                Toast.makeText(this, "Chưa có dữ liệu người tham gia!", Toast.LENGTH_SHORT).show();
         });
 
         exportFab.setOnClickListener(v ->
@@ -110,7 +113,10 @@ public class DetailedActivity extends AppCompatActivity
                 @Override
                 public void onPermissionsChecked(MultiplePermissionsReport report)
                 {
-                    ExportXLSX();
+                    if (temp.getStudentsList() != null)
+                        ExportXLSX();
+                    else
+                        Toast.makeText(DetailedActivity.this, "Dữ liệu rỗng, không thể xuất Excel!", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -119,12 +125,9 @@ public class DetailedActivity extends AppCompatActivity
                     Toast.makeText(DetailedActivity.this, "Vui lòng cấp quyền xuất file lên bộ nhớ!", Toast.LENGTH_SHORT).show();
                 }
             }).check();
-
-
-            //Toast.makeText(this, "Đã xuất file " + temp.getDbChild() + ".xlsx" +" thành công!", Toast.LENGTH_SHORT).show();
         });
 
-        deleteActFab.setOnClickListener(v->
+        deleteActFab.setOnClickListener(v ->
         {
             DeleteActivity();
         });
@@ -259,7 +262,7 @@ public class DetailedActivity extends AppCompatActivity
         fab = (FloatingActionButton) findViewById(R.id.fab_expand);
         rollCallFab = (FloatingActionButton) findViewById(R.id.fab_rollCall);
         exportFab = (FloatingActionButton) findViewById(R.id.fab_export);
-        deleteActFab = (FloatingActionButton)findViewById(R.id.fab_deleteAct);
+        deleteActFab = (FloatingActionButton) findViewById(R.id.fab_deleteAct);
     }
 
     private void ShowFAB()
