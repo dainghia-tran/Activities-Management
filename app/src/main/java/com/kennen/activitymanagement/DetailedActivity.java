@@ -39,7 +39,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -47,6 +46,7 @@ import static com.kennen.activitymanagement.MainActivity.myReference;
 
 public class DetailedActivity extends AppCompatActivity
 {
+    String spaceTextBegin = "  ";
     TextView tvName, tvDate, tvLocation, tvDes;
     FloatingActionButton fab, rollCallFab, deleteActFab, exportFab;
     RecyclerView student;
@@ -70,10 +70,10 @@ public class DetailedActivity extends AppCompatActivity
         if (temp != null)    //check if temp != null
         {
             studentList = temp.getStudentsList();
-            tvName.setText(temp.getName());
-            tvDate.setText(temp.getOrganizeDate());
-            tvLocation.setText(temp.getLocation());
-            tvDes.setText(temp.getDescription());
+            tvName.setText(spaceTextBegin + temp.getName());
+            tvDate.setText(spaceTextBegin + temp.getOrganizeDate());
+            tvLocation.setText(spaceTextBegin + temp.getLocation());
+            tvDes.setText(spaceTextBegin + temp.getDescription());
 
 
             if (studentList != null)

@@ -10,9 +10,10 @@
     <TextView
             android:id="@+id/tv_nameAct"
             android:layout_width="185dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:textColor="#FFFFFF"
+            android:background="@drawable/border"
             android:layout_marginTop="15dp"
             android:text="TextView" />
 
@@ -24,15 +25,17 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:text="TextView"
+            android:background="@drawable/border"
             android:textAlignment="center"
             android:textColor="#FFFFFF" />
 
     <TextView
             android:id="@+id/tv_location"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:textColor="#FFFFFF"
+            android:background="@drawable/border"
             android:layout_marginTop="75dp"
             android:layout_marginEnd="15dp"
             android:text="TextView" />
@@ -43,6 +46,7 @@
             android:textColor="#FFFFFF"
             android:layout_height="150dp"
             android:layout_marginStart="15dp"
+            android:background="@drawable/border"
             android:layout_marginTop="130dp"
             android:layout_marginEnd="15dp"
             android:text="TextView" />

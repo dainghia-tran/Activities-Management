@@ -1,0 +1,35 @@
+[33mcommit 976711e874d7ed68e7909ad9674c151ce3acfdc6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: kennentran <kennen.tran@gmail.com>
+Date:   Fri Mar 13 22:11:25 2020 +0700
+
+    Fix some bugs
+
+[33mcommit d62064b8d4ce7df888bf5ceb513d4d26a03f717d[m
+Author: kennentran <kennen.tran@gmail.com>
+Date:   Fri Mar 13 17:55:53 2020 +0700
+
+    New design and fix some bugs
+
+[33mcommit b84eda00dfb756a18232573bf8b0196775662426[m
+Author: kennentran <kennen.tran@gmail.com>
+Date:   Thu Mar 12 16:43:21 2020 +0700
+
+    Add function export student list to .xlsx
+
+[33mcommit de890a874a832ef37f54ddc117cb4c2e29ea9095[m
+Author: kennentran <kennen.tran@gmail.com>
+Date:   Tue Mar 10 17:31:48 2020 +0700
+
+    Roll-call function added and includes button Scan ID
+
+[33mcommit ae60456cc382922993e5f6770aec51cb38148752[m
+Author: kennentran <kennen.tran@gmail.com>
+Date:   Sun Mar 8 08:58:16 2020 +0700
+
+    Added 'add activity', 'show activity information'. Linked to Firebase
+
+[33mcommit ebc4357a36dfb178389fdfbd9200930b926c1505[m
+Author: kennentran <kennen.tran@gmail.com>
+Date:   Tue Mar 3 11:05:33 2020 +0700
+
+    Initial commit
